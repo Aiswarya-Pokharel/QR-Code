@@ -15,7 +15,14 @@ class _GenerateQrState extends State<GenerateQr> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("QR Code Generator"),
+        centerTitle: true,
+        title: const Text(
+          "QR Code Generator",
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        backgroundColor: Colors.lightGreen.shade200,
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -27,16 +34,39 @@ class _GenerateQrState extends State<GenerateQr> {
                   version: QrVersions.auto,
                   size: 200.0,
                 ),
-          const SizedBox(height: 15),
+          const SizedBox(height: 20),
           SizedBox(
             width: 300,
-            child: TextField(
-              controller: value,
-              decoration: InputDecoration(
-                  hintText: "Enter value to generate QR",
-                  border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(15)),
-                  labelText: "Enter value to generate QR"),
+            child: Container(
+              decoration: const BoxDecoration(
+                  borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(19.5),
+                      topRight: Radius.circular(19.5),
+                      bottomLeft: Radius.circular(19.5),
+                      bottomRight: Radius.circular(19.5)),
+                  boxShadow: [
+                    BoxShadow(
+                        offset: Offset(1.0, 1.0),
+                        blurRadius: 1.0,
+                        spreadRadius: 1.0,
+                        color: Color.fromARGB(255, 131, 141, 161)),
+                    BoxShadow(
+                        color: Colors.white,
+                        offset: Offset(0, 0),
+                        blurRadius: 0,
+                        spreadRadius: 0),
+                  ]),
+              child: TextField(
+                controller: value,
+                decoration: InputDecoration(
+                    hintText: "Enter value to generate QR",
+                    border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(15)),
+                    labelText: "Enter value to generate QR",
+                    labelStyle: const TextStyle(
+                      fontWeight: FontWeight.w100,
+                    )),
+              ),
             ),
           ),
           Center(
