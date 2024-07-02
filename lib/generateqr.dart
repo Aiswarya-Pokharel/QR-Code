@@ -72,11 +72,18 @@ class _GenerateQrState extends State<GenerateQr> {
           Center(
             child: Padding(
               padding: const EdgeInsets.only(top: 20),
-              child: ElevatedButton(
-                  onPressed: () {
-                    setState(() {});
-                  },
-                  child: const Text("Generate QR")),
+              child: SizedBox(
+                height: 40,
+                child: ElevatedButton(
+                    onPressed: () {
+                      setState(() {});
+                    },
+                    child: const Text(
+                      "Generate QR",
+                      style:
+                          TextStyle(fontSize: 20, fontWeight: FontWeight.w200),
+                    )),
+              ),
             ),
           )
         ],
